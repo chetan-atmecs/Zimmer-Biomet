@@ -1,0 +1,50 @@
+/* DoctorList.css */
+
+.doctor-list {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.doctor-list h3 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 16px;
+    font-weight: bold;
+}
+
+.doctor-card {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.doctor-card:hover {
+    background-color: #f1f1f1;
+}
+
+.doctor-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.doctor-info h4 {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+}
+
+.doctor-info p {
+    color: #666;
+    margin: 4px 0 0 0;
+    font-size: 14px;
+}

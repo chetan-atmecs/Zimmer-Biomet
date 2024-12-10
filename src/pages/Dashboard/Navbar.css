@@ -1,0 +1,29 @@
+.navbar {
+
+  /* background-color: #C8E8FF; */
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.navbar-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-list li {
+  margin: 0 1rem;
+}
+
+.navbar-list a {
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.navbar-list a:hover {
+  text-decoration: none;
+}

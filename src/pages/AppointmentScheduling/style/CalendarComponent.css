@@ -1,0 +1,79 @@
+/* CalendarComponent.css */
+
+.calendar-container {
+    width: 100%;
+    /* Makes calendar span full container width */
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.react-calendar {
+    width: 100%;
+    /* Makes the calendar take full width */
+    max-width: 100%;
+    border: none;
+    font-family: Arial, sans-serif;
+}
+
+.react-calendar__navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.react-calendar__navigation button {
+    color: #007bff;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.react-calendar__navigation button:enabled:hover {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+.react-calendar__tile {
+    font-size: 14px;
+    /* Adjust font size for compact look */
+    padding: 10px;
+    max-width: 100%;
+    text-align: center;
+    border-radius: 4px;
+    color: #333;
+}
+
+.react-calendar__tile--now {
+    background: transparent;
+    /* Keep today's date with light blue background */
+    color: #007bff;
+    /* Blue text for today's date */
+    border-radius: 6px;
+}
+
+/* Style the selected date with a blue background */
+.react-calendar__tile--active {
+    background: #007bff;
+    /* Blue background for selected date */
+    color: #ffffff;
+    /* White text for selected date */
+    border-radius: 6px;
+}
+
+.react-calendar__tile--active:enabled:hover {
+    background: #007bff;
+}
+
+/* Style the selected date on hover for consistency */
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+    background: #007bff;
+    /* Darker blue on hover */
+    color: #ffffff;
+    border-radius: 6px;
+}

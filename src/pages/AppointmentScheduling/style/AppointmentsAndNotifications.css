@@ -1,0 +1,170 @@
+/* Container Styling */
+.appointments-notifications-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.appointments-notifications-container h4 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+/* Refresh Button Styling */
+.appointments-notifications-refresh-button {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.appointments-notifications-refresh-button:hover {
+  background-color: #0056b3;
+}
+
+/* Scrollable List Styling */
+.appointments-notifications-scrollable-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px; /* Set the max height for scrollable content */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+/* Scrollbar Styling */
+.appointments-notifications-scrollable-ul::-webkit-scrollbar {
+  width: 8px; /* Customize scrollbar width */
+}
+
+.appointments-notifications-scrollable-ul::-webkit-scrollbar-thumb {
+  background-color: #007bff; /* Customize scrollbar color */
+  border-radius: 4px;
+}
+
+.appointments-notifications-scrollable-ul::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Customize scrollbar track */
+}
+
+/* List Item Styling */
+.appointments-notifications-item {
+  position: relative; /* Needed for absolute positioning inside */
+  padding: 20px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+
+.appointments-notifications-item:last-child {
+  border-bottom: none; /* Remove border for the last item */
+}
+
+.appointments-notifications-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Highlighted Item Styling */
+.appointments-notifications-item.highlight {
+  background-color: #f1f8ff; /* Slight blue highlight for hovered item */
+}
+
+/* Item Details Styling */
+.appointments-notifications-item-title {
+  font-size: 18px;
+  color: #007bff;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.notifications-item-message {
+  color: #007bff;
+}
+
+
+.appointments-notifications-item-details,
+.appointments-notifications-item-time {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.appointments-notifications-item-status {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.appointments-notifications-item-notification {
+  font-size: 14px;
+  color: #6c757d;
+  margin-top: 5px;
+}
+
+/* Empty State Styling */
+.appointments-notifications-empty {
+  font-size: 16px;
+  color: #888;
+  text-align: center;
+  margin: 20px 0;
+  font-style: italic;
+}
+
+/* Action Buttons Styling */
+.appointments-notifications-item-actions button {
+  margin-right: 10px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.appointments-notifications-cancel-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.appointments-notifications-cancel-button:hover {
+  background-color: #a71d2a;
+}
+
+.appointments-notifications-reschedule-button {
+  background-color: #ffc107;
+  color: white;
+}
+
+.appointments-notifications-reschedule-button:hover {
+  background-color: #e0a800;
+}
+.Toastify__toast-container {
+  z-index: 9999 !important;
+}
+
+.appointments-cancel-reschedule {
+  text-align: left; /* Align text to the right */
+  font-size: 0.9rem;
+  color: #007bff;
+  cursor: pointer;
+  opacity: 0.7; /* Slightly faded for subtle appearance */
+}

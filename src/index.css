@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+} */
+
+body {
+  background: linear-gradient(180deg, #3F3F3F 0%, #1A1A1A 100%);
+
+
+
+  /* Example colors */
+  /* height: 100vh; */
+  /* margin: 0; */
+  /* padding: 0; */
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  font-family: FF Mark, arial, -apple-system, sans-serif;
+}
+
+
+/* h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+} */
