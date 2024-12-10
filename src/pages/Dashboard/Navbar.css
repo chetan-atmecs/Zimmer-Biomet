@@ -13,6 +13,14 @@
   margin: 0;
 }
 
+.height_dummy{
+  height: 50px;
+}
+
+.dummy{
+  background-color: #a9e6e3;
+}
+
 .navbar-list li {
   margin: 0 1rem;
 }

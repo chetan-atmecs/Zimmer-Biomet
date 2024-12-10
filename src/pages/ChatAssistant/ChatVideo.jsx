@@ -29,6 +29,7 @@ function ChatMedia() {
           </video>
         ) : (
           <img
+          style={{height:"855px"}}
             loading="lazy"
             src="src\assets\images\MetaHuman_SA_FM1.png"
             alt="Chat interface visual"

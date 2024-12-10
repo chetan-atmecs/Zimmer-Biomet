@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SearchBar = () => {
-  const color = "bg-[#096AB0]";
+  const color = "bg-[#08615F]";
   return (
     <div className={`flex flex-col justify-center items-center p-4 mt-4 ${color}  rounded-lg border border-solid border-white border-opacity-20 max-md:max-w-full`}>
       <div className="flex flex-col max-w-full w-[526px]">

@@ -4,7 +4,7 @@ import './Navbar.css'; // Optional: Import custom CSS for styling
 import NavigationArrows from '../../layouts/MainLayout/NavigationArrows';
 
 const Navbar = () => {
-  const color = "bg-[#096AB0]";
+  const color = "bg-[#08615F]";
   return (
     <nav className={`navbar ${color}`}>
       <ul className="navbar-list">

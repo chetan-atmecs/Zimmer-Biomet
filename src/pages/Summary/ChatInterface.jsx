@@ -14,7 +14,7 @@ function ChatInterface() {
   return (
     <>
       <NavigationArrows title={'EMR Summarizer & Knowledge Graph'}/>
-      <div className="flex overflow-hidden flex-col px-16 bg-[linear-gradient(180deg,#261F53_0%,#0B4CA0_100%)] max-md:px-5 min-h-screen">
+      <div className="flex overflow-hidden flex-col px-16 bg-[linear-gradient(180deg,#0d0d0d_0%,#08615F_100%)] max-md:px-5 min-h-screen">
         {/* <Header /> */}
 
         <SummarizePage

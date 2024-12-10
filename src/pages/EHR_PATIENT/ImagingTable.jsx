@@ -32,15 +32,15 @@ const ImagingTable=forwardRef((props,ref)=>{
   return (
     <div className="p-4 bg-stone-50 bg-opacity-10 rounded-lg">
       <h2 className="text-xl font-medium text-white">Imaging Details</h2>
-      <button 
+      {/* <button 
         onClick={fetchImagingData}
-        className="mt-4 px-4 py-2 bg-[#096AB0] text-white rounded hover:bg-blue-700 transition duration-300"
+        className="mt-4 px-4 py-2 bg-[#08615F] text-white rounded hover:bg-blue-700 transition duration-300"
       >
         Refresh Imaging Data
-      </button>
+      </button> */}
       <div className="overflow-x-auto mt-4 max-h-96">
         <table className="min-w-full text-left border-collapse">
-          <thead className="bg-[#096AB0] text-white sticky top-0">
+          <thead className="bg-[#08615F] text-white sticky top-0">
             <tr>
               <th className="py-3 px-4 border-b">ID</th>
               <th className="py-3 px-4 border-b">Date</th>

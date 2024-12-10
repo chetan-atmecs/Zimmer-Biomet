@@ -3,7 +3,7 @@ import React from "react";
 const featureData = [
   {
     title: "Patients",
-    color: "bg-[#096AB0]",
+    color: "bg-[#08615F]",
     content: [
       "Receiving personalized information about their diagnosis and treatment plan.",
       "Managing appointments and receiving reminders.",
@@ -15,7 +15,7 @@ const featureData = [
   },
   {
     title: "Support Staff",
-    color: "bg-[#096AB0]",
+    color: "bg-[#08615F]",
     content: [
       "Accessing patient vitals and monitoring treatment side effects.",
       "Administering chemotherapy and other treatments with support from Mikaila's scheduling and dosing tools.",
@@ -27,7 +27,7 @@ const featureData = [
   },
   {
     title: "Oncologist",
-    color: "bg-[#096AB0]",
+    color: "bg-[#08615F]",
     content: [
       "Reviewing patient histories and test results.",
       "Receiving recommendations on diagnostic tests or treatment options.",

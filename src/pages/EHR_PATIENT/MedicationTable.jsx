@@ -38,17 +38,17 @@ const MedicationsTable=forwardRef((props,ref)=> {
   return (
     <div className="p-4 bg-stone-50 bg-opacity-10 rounded-lg">
       <h2 className="text-xl font-medium text-white">Medications</h2>
-      <button
+      {/* <button
         onClick={fetchMedications}
-        className="mt-4 px-4 py-2 bg-[#096AB0] text-white rounded hover:bg-blue-700 transition duration-300"
+        className="mt-4 px-4 py-2 bg-[#08615F] text-white rounded hover:bg-blue-700 transition duration-300"
       >
         Refresh Medications
-      </button>
+      </button> */}
 
       {/* Table container with scrollable behavior */}
       <div className="overflow-x-auto overflow-y-auto mt-4 max-h-[400px] border border-gray-300 rounded-lg">
         <table className="min-w-full text-left border-collapse">
-          <thead className="bg-[#096AB0] text-white sticky top-0">
+          <thead className="bg-[#08615F] text-white sticky top-0">
             <tr>
               <th className="py-3 px-4 border-b">Start</th>
               <th className="py-3 px-4 border-b">Stop</th>

@@ -2,7 +2,7 @@ import React from 'react';
 
 function MainContent() {
   return (
-    <main className="flex overflow-hidden flex-wrap mt-6 w-full text-xl leading-8 bg-sky-200 rounded-lg min-h-[359px] text-slate-600 max-md:max-w-full">
+    <main className="flex overflow-hidden flex-wrap mt-6 w-full text-xl leading-8 dummy  rounded-lg min-h-[359px] text-slate-600 max-md:max-w-full">
       <img
         loading="lazy"
         src="src\assets\images\overview1.jpg"

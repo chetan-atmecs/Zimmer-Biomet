@@ -12,7 +12,7 @@
 } */
 
 body {
-  background: linear-gradient(180deg, #3F3F3F 0%, #1A1A1A 100%);
+  background: linear-gradient(180deg, #0d0d0d 0%, #08615F 100%);
 
 
 
@@ -21,9 +21,11 @@ body {
   /* margin: 0; */
   /* padding: 0; */
   /* display: flex; */
+  font-size: 18px;
   align-items: center;
   justify-content: center;
-  font-family: FF Mark, arial, -apple-system, sans-serif;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.4;
 }
 
 

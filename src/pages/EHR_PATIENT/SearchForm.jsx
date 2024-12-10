@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function SearchForm({ ehrDetailData, setEhrDetailData ,fetchAllData}) {
-  const color = "bg-[#096AB0]";
+  const color = "bg-[#08615F]";
   const [ssn, setSsn] = useState('');
 
   useEffect(() => {

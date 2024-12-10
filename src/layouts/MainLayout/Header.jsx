@@ -9,7 +9,7 @@ function Header() {
       {/* <a href="https://www.varian.com/"> */}
       <a href="https://www.nvidia.com/en-in/">
       {/* <img loading="lazy" src="src\layouts\MainLayout\Varian2.png" className="object-contain shrink-0 self-stretch my-auto aspect-[2.86] w-[200px] h-[49px]" alt="Secondary logo" /> */}
-      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/79bd0527aed43b62c040d9939d795735228b8c9e99fbd84a950dc1ea95ab289b?placeholderIfAbsent=true&apiKey=9ba532e0ef57418181adc9d3c43d33c6" className="object-contain shrink-0 self-stretch my-auto my-auto w-21 aspect-[2.86]" alt="Secondary logo" />
+      <img loading="lazy" src="src\assets\images\zimmer_biomet_logo_1.png" className="object-contain shrink-0 self-stretch my-auto aspect-[3] w-[210px]" alt="Secondary logo" />
 
       </a>
     </header>
