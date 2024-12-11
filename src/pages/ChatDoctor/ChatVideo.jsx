@@ -65,7 +65,7 @@ function ChatMedia() {
 
 
   // Define the API endpoint
-const first_run = 'http://66.66.66.41:9500/first_run';
+const first_run = 'http://66.66.66.23:9500/first_run';
 
 // Call the API
 async function fetchData() {

@@ -16,7 +16,7 @@ const routes = [
   '/chat-assistant',
   '/crud-1',
   '/crud-2',
-  '/report',
+  // '/report',
   '/ehr-view',
 ];
 

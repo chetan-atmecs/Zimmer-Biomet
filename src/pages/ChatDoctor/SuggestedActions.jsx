@@ -1,9 +1,9 @@
 import React from 'react';
 import { formatJsonToString } from '../../layouts/custom_utils';
 const suggestedActions = [
-  "Will I need a colostomy bag after surgery, and if so, will it be permanent?",
-  "I love doing handstands. I am currently using a chemo port and blood thinner. Can I proceed? If yes, what are the precautions I would need to take?",
-  "Post chemo, I have immense fatigue. I drink 3L of water everyday along with the doctor-prescribed diet. What else could I do to have more energy?"
+  "What is the exact procedure for a typical knee surgery?",
+  "What are the steps for partial knee surgery?",
+  "What is orthopedia? how it is related to Zimmer Biomet?"
 ];
 
 function SuggestedActions({ addMessage,setMessage,setStreamingResponse,
@@ -38,7 +38,7 @@ function SuggestedActions({ addMessage,setMessage,setStreamingResponse,
   
   const fetchStreamingResponse = async (userMessage) => {
     try {
-      const response = await fetch('http://66.66.66.23:8083/generate', {
+      const response = await fetch('http://66.66.66.23:8082/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

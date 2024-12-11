@@ -1134,6 +1134,7 @@ function ChatInput({
   addMessage,
   setMessage,
   setMessages,
+  setisLoading
 }) {
   const [inputValue, setInputValue] = useState('');
 
@@ -1294,8 +1295,9 @@ function ChatInput({
 //     }
 //   };
 const fetchStreamingResponse = async (userMessage) => {
+  setisLoading(true);
   try {
-    const response = await fetch('http://66.66.66.23:8083/generate', {
+    const response = await fetch('http://66.66.66.23:8084/generate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -1307,7 +1309,7 @@ const fetchStreamingResponse = async (userMessage) => {
             "content": userMessage
           }
         ],
-        "use_knowledge_base": false,
+        "use_knowledge_base": true,
         "temperature": 0.2,
         "top_p": 0.7,
         "max_tokens": 1024,
@@ -1318,12 +1320,12 @@ const fetchStreamingResponse = async (userMessage) => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
-
+    
     // Handle streamed response
     const reader = response.body.getReader();
     const decoder = new TextDecoder('utf-8');
     let result = '';
-
+    
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
@@ -1331,7 +1333,7 @@ const fetchStreamingResponse = async (userMessage) => {
       // Decode the chunk
       const chunk = decoder.decode(value, { stream: true });
       const lines = chunk.split('\n');
-
+      setisLoading(false);
       for (const line of lines) {
         if (line.trim() === '') continue;
 

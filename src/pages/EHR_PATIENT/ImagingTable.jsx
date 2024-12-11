@@ -38,7 +38,7 @@ const ImagingTable=forwardRef((props,ref)=>{
       >
         Refresh Imaging Data
       </button> */}
-      <div className="overflow-x-auto mt-4 max-h-96">
+      <div className="overflow-x-auto overflow-y-auto mt-4 max-h-[400px] border border-gray-300 rounded-lg">
         <table className="min-w-full text-left border-collapse">
           <thead className="bg-[#08615F] text-white sticky top-0">
             <tr>

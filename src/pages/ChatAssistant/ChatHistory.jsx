@@ -420,63 +420,24 @@ import ChatMessage from './ChatMessage';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import MuteIcon from '@mui/icons-material/VolumeOff'; 
 
+import { dotStream } from 'ldrs'
+
+dotStream.register()
+
+// Default values shown
+
+
 const INITIAL_MESSAGE = {
   text: "Hello! I'm an AI assistant. How can I help you today?",
   isUser: false
 };
 
-function ChatHistory({ messages, lastMessage,streamingResponse}) {
+function ChatHistory({ messages, lastMessage,streamingResponse, isLoading}) {
   const messagesEndRef = useRef(null);
   const [audio, setAudio] = useState(null); // To keep track of the playing audio
   const [isPlaying, setIsPlaying] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false); 
-  // const [isEmotionPopoverVisible, setEmotionPopoverVisible] = useState(false);
 
-  // const handleEmotionMouseEnter = () => {
-  //   setEmotionPopoverVisible(true);
-  // };
-
-  // const handleEmotionMouseLeave = () => {
-  //   setEmotionPopoverVisible(false);
-  // };
-
-
-  // const handleSynthesis = async (text) => {
-  //   console.log(text);
-  //   try {
-  //     const response = await fetch('http://66.66.66.23:9011/synthesize', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({ 'text': text }), // Send the text as JSON
-  //     });
-  
-  //     if (!response.ok) {
-  //       throw new Error('Network response was not ok');
-  //     }
-  
-  //     // Get the audio data as a Blob
-  //     const audioBlob = await response.blob();
-  
-  //     // Create a URL for the Blob and play it
-  //     const audioUrl = URL.createObjectURL(audioBlob);
-  //     const audio = new Audio(audioUrl);
-  //     audio.play();
-      
-  
-  //     console.log('Synthesis complete and audio is playing.');
-  //   } catch (error) {
-  //     console.error('Error fetching API:', error);
-  //   }
-  // };
-  
-
-  // const scrollToBottom = () => {
-  //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  // };
-
-  // useEffect(scrollToBottom, [messages]);
 
   const allMessages = [INITIAL_MESSAGE, ...messages];
   const handleSynthesis = async (text) => {
@@ -561,6 +522,7 @@ function ChatHistory({ messages, lastMessage,streamingResponse}) {
       </div>
       </div>
       <div className="flex flex-col mt-4 w-full overflow-y-auto max-h-[400px] custom-scrollbar">
+      
       {allMessages.map((message, index) => (
         <ChatMessage 
         key={index} 
@@ -571,7 +533,11 @@ function ChatHistory({ messages, lastMessage,streamingResponse}) {
       ))}
       {streamingResponse && <ChatMessage avatar="src/assets/images/Patient img(1)(1)rr.png" message={streamingResponse} isUser={false}/>}
         <div ref={messagesEndRef} />
+        
       </div>
+      
+      
+      
       <style jsx>{`
         .custom-scrollbar {
           scrollbar-width: thin;

@@ -10,15 +10,7 @@ function MainContent() {
         className="aspect-[1.49] min-w-[240px] w-[536px] max-md:max-w-full"
       />
       <div className="flex-1 shrink gap-2.5 self-stretch p-6 h-full min-w-[240px] max-md:px-5 max-md:max-w-full">
-        The Virtual Assistant for Oncologists is designed to empower healthcare
-        professionals with AI-driven support, enhancing decision-making and
-        patient care. By streamlining workflows, providing real-time data
-        insights, and enabling personalized patient interactions, this
-        innovative tool allows oncologists to focus on delivering the best
-        possible outcomes. With its integration into existing systems and
-        advanced analytics, the Virtual Assistant represents the future of
-        oncology care, driving efficiency and precision in every aspect of
-        treatment.
+      The Zimmer Biomet Virtual Assistant is here to guide you through your journey to recovery with personalized support, expert advice, and tailored solutions. Designed with your health and well-being in mind, our virtual assistant helps you navigate Zimmer Biomet's advanced orthopedic technologies, providing easy access to information about treatment options, recovery tips, and product details.
       </div>
     </main>
   );

@@ -26,7 +26,7 @@ const featureData = [
     image: "https://cdn.builder.io/api/v1/image/assets/TEMP/6f57e229690fee2af75e16968ff6e17b729e827a797264321c4f259d1016c810?placeholderIfAbsent=true&apiKey=9ba532e0ef57418181adc9d3c43d33c6"
   },
   {
-    title: "Oncologist",
+    title: "Specialist",
     color: "bg-[#08615F]",
     content: [
       "Reviewing patient histories and test results.",

@@ -472,11 +472,18 @@ function ChatHistory({ messages, lastMessage,streamingResponse}) {
   // };
   
 
-  // const scrollToBottom = () => {
-  //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  // };
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
-  // useEffect(scrollToBottom, [messages]);
+  useEffect(scrollToBottom, [streamingResponse]);
+
+  // useEffect(() => {
+  //   // Scroll to the bottom of the chat when a new message is added or the streaming response changes
+  //   if (messagesEndRef.current) {
+  //     messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // }, [streamingResponse]); // Trigger auto-scroll on new messages or response
 
   const allMessages = [INITIAL_MESSAGE, ...messages];
   const handleSynthesis = async (text) => {
@@ -573,6 +580,10 @@ function ChatHistory({ messages, lastMessage,streamingResponse}) {
         <div ref={messagesEndRef} />
       </div>
       <style jsx>{`
+      .custom-scrollbar-container {
+          overflow-y: auto;
+          max-height: 400px;
+        }
         .custom-scrollbar {
           scrollbar-width: thin;
           scrollbar-color: rgba(155, 155, 155, 0.5) transparent;

@@ -3,7 +3,7 @@ import React from "react";
 const iconCardData = [
   {
     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/644f3127891047f0b9914ce7c6c7bb2e1ca2bc3d93af0d53c3af186b9d4c102b?placeholderIfAbsent=true&apiKey=9ba532e0ef57418181adc9d3c43d33c6",
-    title: "Innovative Cancer Treatment Solutions"
+    title: "Innovative Treatment Solutions"
   },
   {
     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/2408b2f40328e4dabdeba627c02b58dbe4c228590057db4ddc966a6bf553258d?placeholderIfAbsent=true&apiKey=9ba532e0ef57418181adc9d3c43d33c6",

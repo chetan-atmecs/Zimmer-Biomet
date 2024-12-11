@@ -1,9 +1,9 @@
 import React from 'react';
 import { formatJsonToString } from '../../layouts/custom_utils';
 const suggestedActions = [
-  "Will I need a colostomy bag after surgery, and if so, will it be permanent?",
-  "I love doing handstands. I am currently using a chemo port and blood thinner. Can I proceed? If yes, what are the precautions I would need to take?",
-  "Post chemo, I have immense fatigue. I drink 3L of water everyday along with the doctor-prescribed diet. What else could I do to have more energy?"
+  "Learn how Zimmer Biomet’s personalized treatment options can provide you with a faster, more comfortable recovery journey.",
+  "Discover how Zimmer Biomet’s innovative joint solutions can help you regain mobility and improve your quality of life.",
+  "Find out how Zimmer Biomet’s advanced orthopedic technology supports your path to a more active and pain-free lifestyle."
 ];
 
 function SuggestedActions({ addMessage,setMessage,setStreamingResponse,

@@ -1295,7 +1295,7 @@ function ChatInput({
 //   };
 const fetchStreamingResponse = async (userMessage) => {
   try {
-    const response = await fetch('http://66.66.66.23:8083/generate', {
+    const response = await fetch('http://66.66.66.23:8082/generate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -1307,7 +1307,7 @@ const fetchStreamingResponse = async (userMessage) => {
             "content": userMessage
           }
         ],
-        "use_knowledge_base": false,
+        "use_knowledge_base": true,
         "temperature": 0.2,
         "top_p": 0.7,
         "max_tokens": 1024,
