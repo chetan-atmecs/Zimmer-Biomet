@@ -16,6 +16,7 @@ import MainPagePatient from '../pages/EHR_PATIENT/MainPage';
 import ChatInterfaceSummary from '../pages/Summary/ChatInterface';
 import AppointmentPage from '../pages/AppointmentScheduling/AppointmentPage';
 import KnowledgeGraph from '../pages/KnowledgeGraphDashboard/KnowledgeGraph';
+import Test from '../layouts/MainLayout/Test';
 function AppRoutes() {
   return (
     <Router>
@@ -41,6 +42,7 @@ function AppRoutes() {
 
           <Route path='/knowledge' element={<KnowledgeGraph/>}/>
           <Route path='/summary' element={<ChatInterfaceSummary/>}/>
+          <Route path='/test' element={<Test/>}/>
 
           
         </Routes>

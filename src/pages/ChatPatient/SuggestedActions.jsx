@@ -6,62 +6,127 @@ const suggestedActions = [
   "Post chemo, I have immense fatigue. I drink 3L of water everyday along with the doctor-prescribed diet. What else could I do to have more energy?"
 ];
 
-function SuggestedActions({ addMessage,setEmotionScore,setEmpathyScore,setMessage,setRewardScore,
-  setEmotionScoreHover,
-  setRewardScoreHover,
-  setEmpathyScoreHover,
+function SuggestedActions({ addMessage,setMessage,setStreamingResponse,
   setMessages,
   setLastMessage
  }) {
-  const fetchResponse = async (message) => {
+  // const fetchResponse = async (message) => {
+  //   try {
+  //     const response = await fetch('http://66.66.66.23:9070/get-response', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         'text': message,
+  //         'session_id': "",
+  //         'query_type': 'general'
+  //       }), 
+  //     });
+
+  //     if (!response.ok) {
+  //       throw new Error('Network response was not ok');
+  //     }
+
+  //     const data = await response.json(); 
+  //     return data;
+  //   } catch (error) {
+  //     console.error('Error fetching API:', error);
+  //     return { error: 'Failed to fetch response ' };
+  //   }
+  // };
+  
+  const fetchStreamingResponse = async (userMessage) => {
     try {
-      const response = await fetch('http://66.66.66.23:9070/get-response', {
+      const response = await fetch('http://66.66.66.23:8083/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          'text': message,
-          'session_id': "",
-          'query_type': 'general'
-        }), 
+          "messages": [
+            {
+              "role": "user",
+              "content": userMessage
+            }
+          ],
+          "use_knowledge_base": true,
+          "temperature": 0.2,
+          "top_p": 0.7,
+          "max_tokens": 1024,
+          "stop": []
+        }),
       });
-
+  
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-
-      const data = await response.json(); 
-      return data;
+  
+      // Handle streamed response
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder('utf-8');
+      let result = '';
+  
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+  
+        // Decode the chunk
+        const chunk = decoder.decode(value, { stream: true });
+        const lines = chunk.split('\n');
+  
+        for (const line of lines) {
+          if (line.trim() === '') continue;
+  
+          try {
+            // Parse the JSON from each line and extract the content
+            const parsed = JSON.parse(line.replace(/^data: /, '').trim());
+            if (parsed.choices && parsed.choices[0] && parsed.choices[0].message) {
+              result += parsed.choices[0].message.content;
+              console.log("Recievd results",result)
+              setStreamingResponse(result)
+            }
+          } catch (e) {
+            console.error('Failed to parse line:', line, e);
+          }
+        }
+      }
+  
+      // Process the final result
+      console.log('Complete response:', result);
+      return result;
     } catch (error) {
       console.error('Error fetching API:', error);
-      return { error: 'Failed to fetch response ' };
+      return { error: 'Failed to fetch response' };
     }
   };
+
+
   const handleClick = async (inputValue) => {
     if (inputValue.trim()) {
       addMessage(inputValue);
       
       
       // Fetch the response from the API
-      const apiResponse = await fetchResponse(inputValue);
+      const apiResponse = await fetchStreamingResponse(inputValue);
       console.log(apiResponse)
+      setStreamingResponse(false)
       // Update the ScoreCard with the API response
       if (apiResponse && !apiResponse.error) {
-        setRewardScore(apiResponse.normal.reward.score || 'N/A');
-        setEmotionScore(apiResponse.emotionalscore.Logit_Scale || '0');
-        setEmpathyScore(apiResponse.normal.empathy.score.Empathy || '0');
-        setEmotionScoreHover(formatJsonToString(apiResponse.emotionalscore))
-        setRewardScoreHover(formatJsonToString(apiResponse.normal.reward.basicrewardscore))
-        setEmpathyScoreHover(formatJsonToString(apiResponse.normal.empathy.score))
+        // setRewardScore(apiResponse.normal.reward.score || 'N/A');
+        // setEmotionScore(apiResponse.emotionalscore.Logit_Scale || '0');
+        // setEmpathyScore(apiResponse.normal.empathy.score.Empathy || '0');
+        // setEmotionScoreHover(formatJsonToString(apiResponse.emotionalscore))
+        // setRewardScoreHover(formatJsonToString(apiResponse.normal.reward.basicrewardscore))
+        // setEmpathyScoreHover(formatJsonToString(apiResponse.normal.empathy.score))
         
         setMessages((prevMessages) => [
           ...prevMessages,
-          { text: apiResponse.normal.output, isUser: false },
+          { text: apiResponse, isUser: false },
         ]);
-        setMessage(apiResponse.normal.output);
+        setMessage(apiResponse);
         // addMessage(apiResponse.response.normal.output,false);
-        setLastMessage(apiResponse.normal.output); 
+        setLastMessage(apiResponse); 
       } else {
         setMessage(apiResponse.error || "Failed to fetch response");
       }
