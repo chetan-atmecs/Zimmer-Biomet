@@ -1307,7 +1307,7 @@ const fetchStreamingResponse = async (userMessage) => {
             "content": userMessage
           }
         ],
-        "use_knowledge_base": true,
+        "use_knowledge_base": false,
         "temperature": 0.2,
         "top_p": 0.7,
         "max_tokens": 1024,
@@ -1341,6 +1341,7 @@ const fetchStreamingResponse = async (userMessage) => {
           if (parsed.choices && parsed.choices[0] && parsed.choices[0].message) {
             result += parsed.choices[0].message.content;
             console.log("Recievd results",result)
+            await new Promise(resolve => setTimeout(resolve, 60));
             setStreamingResponse(result)
           }
         } catch (e) {

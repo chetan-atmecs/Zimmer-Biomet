@@ -110,40 +110,40 @@ async function fetchData() {
 
   return (
     <div className="flex flex-col w-[58%] max-md:ml-0 max-md:w-full">
-      <div className="flex grow gap-2.5 ">
-        {isStreaming ? (
-          <div className="object-cover flex-1 w-full h-full rounded-lg">
-            <PixelStreamingWrapper
-              initialSettings={{
-                AutoPlayVideo: true,
-                AutoConnect: true,
-                ss: 'ws://66.66.66.41:30080',
-                StartVideoMuted: false,
-                HoveringMouse: true,
-                WaitForStreamer: true
-              }}
-              
-            />
-          </div>
-        ) : (
-          <img
-            loading="lazy"
-            src="src\assets\images\Render_04.png"
-            alt="Chat interface visual"
-            className="object-cover flex-1 w-full h-full rounded-lg"
-          />
-        )}
+  <div className="flex grow gap-2.5">
+    {isStreaming ? (
+      <div className="object-cover flex-1 w-full h-full rounded-lg overflow-hidden bg-black">
+        <PixelStreamingWrapper
+          initialSettings={{
+            AutoPlayVideo: true,
+            AutoConnect: true,
+            ss: 'ws://66.66.66.23:30080',
+            StartVideoMuted: false,
+            HoveringMouse: true,
+            WaitForStreamer: true,
+          }}
+        />
       </div>
+    ) : (
+      <img
+        loading="lazy"
+        src="src/assets/images/Render_04.png"
+        alt="Chat interface visual"
+        className="object-cover flex-1 w-full h-full rounded-lg"
+      />
+    )}
+  </div>
 
-      <div className="flex gap-4 mt-4">
-        <button
-          onClick={handleToggleStreaming}
-          className="bg-white text-black py-2 px-4 rounded-lg"
-        >
-          Start Streaming
-        </button>
-      </div>
-    </div>
+  <div className="flex gap-4 mt-4">
+    <button
+      onClick={handleToggleStreaming}
+      className="bg-white text-black py-2 px-4 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-300"
+    >
+      Start Streaming
+    </button>
+  </div>
+</div>
+
   );
 }
 
