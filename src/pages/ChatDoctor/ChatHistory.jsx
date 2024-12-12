@@ -472,11 +472,11 @@ function ChatHistory({ messages, lastMessage,streamingResponse}) {
   // };
   
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  // const scrollToBottom = () => {
+  //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  // };
 
-  useEffect(scrollToBottom, [streamingResponse]);
+  // useEffect(scrollToBottom, [streamingResponse]);
 
   // useEffect(() => {
   //   // Scroll to the bottom of the chat when a new message is added or the streaming response changes
