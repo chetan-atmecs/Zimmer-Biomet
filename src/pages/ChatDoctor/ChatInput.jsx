@@ -1127,6 +1127,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { formatJsonToString } from '../../layouts/custom_utils';
 function ChatInput({
+  setIsLoading,
   lastMessage,
   setLastMessage,
   setStreamingResponse,
@@ -1343,6 +1344,7 @@ const fetchStreamingResponse = async (userMessage) => {
             console.log("Recievd results",result)
             await new Promise(resolve => setTimeout(resolve, 60));
             setStreamingResponse(result)
+            setIsLoading(false);
           }
         } catch (e) {
           console.error('Failed to parse line:', line, e);
@@ -1380,7 +1382,7 @@ const fetchStreamingResponse = async (userMessage) => {
     if (currentInputValue.trim() !== '') {
       addMessage(inputValue);
       setInputValue('');
-
+      setIsLoading(true)
       const apiResponse = await fetchStreamingResponse(inputValue); // Fetch response from bot
       console.log("apiresposne is ",apiResponse);
       setStreamingResponse(false);

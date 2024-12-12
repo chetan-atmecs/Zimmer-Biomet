@@ -67,8 +67,7 @@ function ChatInfo(){
   const [messages, setMessages] = useState([]);
   const [lastMessage,setLastMessage] = useState(messages?.length===0? "Hello! I'm an AI assistant. How can I help you today?":'');
   const [streamingResponse, setStreamingResponse] = useState(null);
-
-  const [isLoading, setisLoading] = useState(false);
+  const [isLoading,setIsLoading] = useState(false);
 
   const addMessage = (message, isUser = true) => {
     setMessages((prevMessages) => [...prevMessages, { text: message, isUser }]);
@@ -83,16 +82,16 @@ function ChatInfo(){
       <div className="flex flex-col w-full min-h-[846px] max-md:mt-7 max-md:max-w-full">
         {/* <ScoreCard title="Reward Score" rewardScore={rewardScore} empathyScore={empathyScore}  message={message} empathyScoreHover={empathyScoreHover} rewardScoreHover={rewardScoreHover}/> */}
         {/* <ChatHistory score={emotionScore} messages={messages} lastMessage={lastMessage} emotionScoreHover={emotionScoreHover} /> */}
-        <ChatHistory streamingResponse={streamingResponse} messages={messages} lastMessage={lastMessage} isLoading={isLoading}/>
+        <ChatHistory isLoading={isLoading} streamingResponse={streamingResponse} messages={messages} lastMessage={lastMessage} />
         {/* <SuggestedActions addMessage={addMessage} setEmotionScore={setEmotionScore} setRewardScore={setRewardScore} setEmpathyScore={setEmpathyScore} setMessage={setMessage}  */}
         {/* setEmotionScoreHover={setEmotionScoreHover} setEmpathyScoreHover={setEmpathyScoreHover} setRewardScoreHover={setRewardScoreHover} setMessages={setMessages} setLastMessage={setLastMessage} */}
         {/* /> */}
-        <SuggestedActions setStreamingResponse={setStreamingResponse}  addMessage={addMessage} setMessage={setMessage} setMessages={setMessages} setLastMessage={setLastMessage}  />
+        <SuggestedActions setIsLoading={setIsLoading} setStreamingResponse={setStreamingResponse}  addMessage={addMessage} setMessage={setMessage} setMessages={setMessages} setLastMessage={setLastMessage}  />
 
         {/* <ChatInput lastMessage = {lastMessage} setLastMessage={setLastMessage} messages={messages} addMessage={addMessage} setEmotionScore={setEmotionScore} setRewardScore={setRewardScore} setEmpathyScore={setEmpathyScore} setMessage={setMessage} setMessages={setMessages}  */}
           {/* setEmotionScoreHover={setEmotionScoreHover} setEmpathyScoreHover={setEmpathyScoreHover} setRewardScoreHover={setRewardScoreHover} */}
         {/* /> */}
-        <ChatInput setStreamingResponse={setStreamingResponse} lastMessage = {lastMessage} setLastMessage={setLastMessage} messages={messages} addMessage={addMessage} setMessage={setMessage} setMessages={setMessages} setisLoading={setisLoading} />
+        <ChatInput setIsLoading={setIsLoading} setStreamingResponse={setStreamingResponse} lastMessage = {lastMessage} setLastMessage={setLastMessage} messages={messages} addMessage={addMessage} setMessage={setMessage} setMessages={setMessages} />
       </div>
     </div>
   );

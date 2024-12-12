@@ -425,7 +425,7 @@ const INITIAL_MESSAGE = {
   isUser: false
 };
 
-function ChatHistory({ messages, lastMessage,streamingResponse}) {
+function ChatHistory({ isLoading,messages, lastMessage,streamingResponse}) {
   const messagesEndRef = useRef(null);
   const [audio, setAudio] = useState(null); // To keep track of the playing audio
   const [isPlaying, setIsPlaying] = useState(false);
@@ -569,6 +569,7 @@ function ChatHistory({ messages, lastMessage,streamingResponse}) {
         isUser={message.isUser} 
         />
       ))}
+      {isLoading && <ChatMessage isLoading={isLoading} avatar="src/assets/images/Patient img(1)(1)rr.png" isUser={false}/>}
       {streamingResponse && <ChatMessage avatar="src/assets/images/Patient img(1)(1)rr.png" message={streamingResponse} isUser={false}/>}
         <div ref={messagesEndRef} />
       </div>

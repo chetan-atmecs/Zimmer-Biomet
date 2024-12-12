@@ -1134,7 +1134,7 @@ function ChatInput({
   addMessage,
   setMessage,
   setMessages,
-  setisLoading
+  setIsLoading
 }) {
   const [inputValue, setInputValue] = useState('');
 
@@ -1333,7 +1333,7 @@ const fetchStreamingResponse = async (userMessage) => {
       // Decode the chunk
       const chunk = decoder.decode(value, { stream: true });
       const lines = chunk.split('\n');
-      setisLoading(false);
+      
       for (const line of lines) {
         if (line.trim() === '') continue;
 
@@ -1345,6 +1345,7 @@ const fetchStreamingResponse = async (userMessage) => {
             console.log("Recievd results",result)
             await new Promise(resolve => setTimeout(resolve, 60));
             setStreamingResponse(result)
+            setIsLoading(false);
           }
         } catch (e) {
           console.error('Failed to parse line:', line, e);
@@ -1382,7 +1383,7 @@ const fetchStreamingResponse = async (userMessage) => {
     if (currentInputValue.trim() !== '') {
       addMessage(inputValue);
       setInputValue('');
-
+      setIsLoading(true)
       const apiResponse = await fetchStreamingResponse(inputValue); // Fetch response from bot
       console.log("apiresposne is ",apiResponse);
       setStreamingResponse(false);
