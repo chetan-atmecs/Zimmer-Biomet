@@ -39,7 +39,7 @@ function SuggestedActions({ addMessage,setMessage,setStreamingResponse,
   
   const fetchStreamingResponse = async (userMessage) => {
     try {
-      const response = await fetch('http://66.66.66.23:9000/generate', {
+      const response = await fetch('http://66.66.66.23:8082/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -48,10 +48,10 @@ function SuggestedActions({ addMessage,setMessage,setStreamingResponse,
           "messages": [
             {
               "role": "user",
-              "content": userMessage
+              "content": 'hi'
             }
           ],
-          "use_knowledge_base": true,
+          "use_knowledge_base": false,
           "temperature": 0.2,
           "top_p": 0.7,
           "max_tokens": 1024,
@@ -97,12 +97,36 @@ function SuggestedActions({ addMessage,setMessage,setStreamingResponse,
   
       // Process the final result
       console.log('Complete response:', result);
-      return result;
-    } catch (error) {
-      console.error('Error fetching API:', error);
-      return { error: 'Failed to fetch response' };
-    }
+      // return result;
+       // Call another API with the final result
+    // const anotherApiResponse = await fetch('http://66.66.66.23:900/synthesize', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({ text: result }),
+    // });
+
+    // if (!anotherApiResponse.ok) {
+    //   console.error('Failed to send the result to another API');
+    // } else {
+    //   console.log('Successfully sent result to another API');
+    // }
+
+    return result;
+  // } catch (error) {
+  //   console.error('Error fetching API:', error);
+  //   return { error: 'Failed to fetch response' };
+  // }
+
+
+
+
+    
+  }catch(error){
+    console.log("Error")
   };
+}
 
 
   const handleClick = async (inputValue) => {

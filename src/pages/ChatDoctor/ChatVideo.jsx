@@ -109,10 +109,10 @@ async function fetchData() {
   };
 
   return (
-    <div className="flex flex-col w-[58%] max-md:ml-0 max-md:w-full">
+    <div className="flex flex-col w-[58%]  ">
   <div className="flex grow gap-2.5">
     {isStreaming ? (
-      <div className="object-cover flex-1 w-full h-full rounded-lg overflow-hidden bg-black">
+      <div className="object-cover flex-1   rounded-lg overflow-hidden bg-teal">
         <PixelStreamingWrapper
           initialSettings={{
             AutoPlayVideo: true,

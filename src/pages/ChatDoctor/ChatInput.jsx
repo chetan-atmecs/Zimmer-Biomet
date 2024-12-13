@@ -1294,9 +1294,82 @@ function ChatInput({
 //       return { error: 'Failed to fetch response' };
 //     }
 //   };
+ // Call another API with the final result
+
+
+
+// const fetchStreamingResponse = async (userMessage) => {
+//   try {
+//     const response = await fetch('http://66.66.66.23:9000/generate', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({
+//         "messages": [
+//           {
+//             "role": "user",
+//             "content": userMessage
+//           }
+//         ],
+//         "use_knowledge_base": true,
+//         "temperature": 0.2,
+//         "top_p": 0.7,
+//         "max_tokens": 1024,
+//         "stop": []
+//       }),
+//     });
+
+//     if (!response.ok) {
+//       throw new Error('Network response was not ok');
+//     }
+
+//     // Handle streamed response
+//     const reader = response.body.getReader();
+//     const decoder = new TextDecoder('utf-8');
+//     let result = '';
+
+//     while (true) {
+//       const { done, value } = await reader.read();
+//       if (done) break;
+
+//       // Decode the chunk
+//       const chunk = decoder.decode(value, { stream: true });
+//       const lines = chunk.split('\n');
+
+//       for (const line of lines) {
+//         if (line.trim() === '') continue;
+
+//         try {
+//           // Parse the JSON from each line and extract the content
+//           const parsed = JSON.parse(line.replace(/^data: /, '').trim());
+//           if (parsed.choices && parsed.choices[0] && parsed.choices[0].message) {
+//             result += parsed.choices[0].message.content;
+//             console.log("Recievd results",result)
+//             await new Promise(resolve => setTimeout(resolve, 60));
+//             setStreamingResponse(result)
+//             setIsLoading(false);
+//           }
+//         } catch (e) {
+//           console.error('Failed to parse line:', line, e);
+//         }
+//       }
+//     }
+
+//     // Process the final result
+//     console.log('Complete response:', result);
+
+//     return result;
+//   } catch (error) {
+//     console.error('Error fetching API:', error);
+//     return { error: 'Failed to fetch response' };
+//   }
+// };
+
+
 const fetchStreamingResponse = async (userMessage) => {
   try {
-    const response = await fetch('http://66.66.66.23:9000/generate', {
+    const response = await fetch('http://66.66.66.23:8082/generate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -1308,7 +1381,7 @@ const fetchStreamingResponse = async (userMessage) => {
             "content": userMessage
           }
         ],
-        "use_knowledge_base": true,
+        "use_knowledge_base": false,
         "temperature": 0.2,
         "top_p": 0.7,
         "max_tokens": 1024,
@@ -1341,9 +1414,9 @@ const fetchStreamingResponse = async (userMessage) => {
           const parsed = JSON.parse(line.replace(/^data: /, '').trim());
           if (parsed.choices && parsed.choices[0] && parsed.choices[0].message) {
             result += parsed.choices[0].message.content;
-            console.log("Recievd results",result)
-            await new Promise(resolve => setTimeout(resolve, 60));
-            setStreamingResponse(result)
+            console.log("Received result chunk:", result);
+            // await new Promise(resolve => setTimeout(resolve, 60));
+            setStreamingResponse(result);
             setIsLoading(false);
           }
         } catch (e) {
@@ -1354,12 +1427,39 @@ const fetchStreamingResponse = async (userMessage) => {
 
     // Process the final result
     console.log('Complete response:', result);
-    return result;
-  } catch (error) {
-    console.error('Error fetching API:', error);
-    return { error: 'Failed to fetch response' };
-  }
+
+    // Call another API with the final result
+  //   const anotherApiResponse = await fetch('http://66.66.66.23:9500/synthesize/', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({ text: result }),
+  //   });
+
+  //   if (!anotherApiResponse.ok) {
+  //     console.error('Failed to send the result to another API');
+  //   } else {
+  //     console.log('Successfully sent result to another API');
+  //   }
+
+  //   return result;
+  // } catch (error) {
+  //   console.error('Error fetching API:', error);
+  //   return { error: 'Failed to fetch response' };
+  // }
+
+  return result
+
+}catch(error){
+  console.error("error")
 };
+}
+
+
+
+
+
 
   const handleRefresh = async () => {
     try {
@@ -1378,8 +1478,9 @@ const fetchStreamingResponse = async (userMessage) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const currentInputValue = inputRef.current || inputValue;
-    if (currentInputValue.trim() !== '') {
+    // const currentInputValue = inputRef.current || inputValue;
+    console.log(inputValue)
+    if (inputValue.trim() !=='') {
       addMessage(inputValue);
       setInputValue('');
       setIsLoading(true)

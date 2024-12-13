@@ -564,7 +564,7 @@ function ChatHistory({ isLoading,messages, lastMessage,streamingResponse}) {
       {allMessages.map((message, index) => (
         <ChatMessage 
         key={index} 
-        avatar={message.isUser ? "src/assets/images/avatar-1.png" : "src/assets/images/Patient img(1)(1)rr.png"} 
+        avatar={message.isUser ? "src/assets/images/avatar-1.png" : "src/assets/images/Doctor img(1)(1).png"} 
         message={message.text} 
         isUser={message.isUser} 
         />

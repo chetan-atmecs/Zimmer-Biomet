@@ -56,12 +56,13 @@ export const PixelStreamingWrapper = ({
                 height: '100%',
                 position: 'relative',
                 // borderWidth:"10px"
-                border:'1px solid black'
+               
             }}
         >
-            <div ref={videoParent}  />
+            <div  ref={videoParent}  />
             {clickToPlayVisible && (
                 <div
+                
                     onClick={() => {
                         pixelStreaming?.play();
                         setClickToPlayVisible(false);

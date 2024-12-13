@@ -39,7 +39,7 @@ function SuggestedActions({ addMessage,setMessage,setStreamingResponse,
   
   const fetchStreamingResponse = async (userMessage) => {
     try {
-      const response = await fetch('http://66.66.66.23:8084/generate', {
+      const response = await fetch('http://66.66.66.23:8082/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
