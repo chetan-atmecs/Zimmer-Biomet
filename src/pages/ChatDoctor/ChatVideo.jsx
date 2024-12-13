@@ -117,7 +117,7 @@ async function fetchData() {
           initialSettings={{
             AutoPlayVideo: true,
             AutoConnect: true,
-            ss: 'ws://66.66.66.23:30080',
+            ss: 'ws://66.66.66.41:30080',
             StartVideoMuted: false,
             HoveringMouse: true,
             WaitForStreamer: true,

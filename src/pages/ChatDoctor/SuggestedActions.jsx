@@ -48,10 +48,10 @@ function SuggestedActions({ addMessage,setMessage,setStreamingResponse,
           "messages": [
             {
               "role": "user",
-              "content": 'hi'
+              "content": userMessage
             }
           ],
-          "use_knowledge_base": false,
+          "use_knowledge_base": true,
           "temperature": 0.2,
           "top_p": 0.7,
           "max_tokens": 1024,
