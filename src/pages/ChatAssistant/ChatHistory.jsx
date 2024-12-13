@@ -421,7 +421,7 @@ import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import MuteIcon from '@mui/icons-material/VolumeOff'; 
 
 const INITIAL_MESSAGE = {
-  text: "Hello! I'm an AI assistant. How can I help you today?",
+  text: "Hello! Welcome to Zimmer Biomet's Support Engineer. I'm Mikaila, your AI assistant. How may I assist you today?",
   isUser: false
 };
 

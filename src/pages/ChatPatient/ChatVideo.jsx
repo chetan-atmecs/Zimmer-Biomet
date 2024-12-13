@@ -5,9 +5,9 @@ function ChatMedia() {
 
   // Video sources, replace these paths with your actual local video files
   const videoSources = [
-    "src/assets/images/PatientFacing_Eng_FM.mp4",
-    "src/assets/images/PatientFacing_Spa_FM.mp4",
-    "src/assets/images/PatientFacing_Man_FM.mp4"
+    "src/assets/images/PatientFacing_Eng_Female.mp4",
+    "src/assets/images/PatientFacing_Spanish_Female.mp4",
+    "src/assets/images/PatientFacing_mandarin_Female.mp4"
     // "/path-to-your-local-video3.mp4"
   ];
 
