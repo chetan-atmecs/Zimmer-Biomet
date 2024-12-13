@@ -22,7 +22,7 @@ function RegistrationForm() {
     <form className="flex flex-col self-center p-6 mt-30 max-w-full rounded-lg bg-white bg-opacity-30 w-[430px] max-md:px-5 max-md:mt-10">
       <header className="flex flex-col self-start text-white">
         <h1 className="text-2xl font-medium tracking-widest">Registration</h1>
-        <p className="text-base">Your Trusted Companion in Cancer Care.</p>
+        {/* <p className="text-base">Your Trusted Companion in Health Care.</p> */}
       </header>
       <div className="flex flex-col w-full">
         {inputFields.map((field, index) => (

@@ -14,7 +14,7 @@ function LoginForm() {
           <h1 className="text-2xl font-medium tracking-widest text-left">
             Login
           </h1>
-          <p className="text-base">Navigating Cancer Care Together.</p>
+          {/* <p className="text-base">Navigating Health Care Together.</p> */}
         </header>
         <main className="flex flex-col mt-6 w-full">
           <InputField
