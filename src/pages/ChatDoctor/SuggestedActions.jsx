@@ -1,12 +1,12 @@
 import React from 'react';
 import { formatJsonToString } from '../../layouts/custom_utils';
 const suggestedActions = [
-  "What is the exact procedure for a typical knee surgery?",
-  "What are the steps for partial knee surgery?",
-  "What is orthopedia? how it is related to Zimmer Biomet?"
+  " Cementless Taperloc system for a patient with osteoporosis, or a hybrid approach?",
+  "How to select the correct acetabular cup size for a patient with dysplastic hips using Zimmer Biomet implants?",
+  "How can I ensure precise alignment and ligament balancing using the NexGen® Complete Knee Solution system?"
 ];
 
-function SuggestedActions({ addMessage,setMessage,setStreamingResponse,
+function SuggestedActions({callThisMethod, addMessage,setMessage,setStreamingResponse,
   setMessages,
   setLastMessage,
   setIsLoading
@@ -128,6 +128,24 @@ function SuggestedActions({ addMessage,setMessage,setStreamingResponse,
   };
 }
 
+function cleanseMarkdown(data) {
+  /**
+   * Cleanses the input text by removing '*' and '**' markers used for text formatting in Markdown.
+   * Also ensures proper formatting for bullet points.
+   *
+   * @param {string} data - The input text containing Markdown-style markers.
+   * @returns {string} The cleansed text with markers removed and proper formatting applied.
+   */
+
+  // Remove **bold markers** and *italic markers*
+  const cleansedText = data.replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1');
+
+  // Ensure proper formatting for bullet points
+  return cleansedText.replace(/^\s*\*/gm, '-');
+}
+
+
+
 
   const handleClick = async (inputValue) => {
     if (inputValue.trim()) {
@@ -146,7 +164,8 @@ function SuggestedActions({ addMessage,setMessage,setStreamingResponse,
         // setEmotionScoreHover(formatJsonToString(apiResponse.emotionalscore))
         // setRewardScoreHover(formatJsonToString(apiResponse.normal.reward.basicrewardscore))
         // setEmpathyScoreHover(formatJsonToString(apiResponse.normal.empathy.score))
-        
+        console.log("clean data",);
+        callThisMethod(cleanseMarkdown(apiResponse));
         setMessages((prevMessages) => [
           ...prevMessages,
           { text: apiResponse, isUser: false },

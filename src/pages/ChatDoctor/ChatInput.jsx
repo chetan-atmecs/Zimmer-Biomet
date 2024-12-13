@@ -1127,6 +1127,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { formatJsonToString } from '../../layouts/custom_utils';
 function ChatInput({
+  callThisMethod,
   setIsLoading,
   lastMessage,
   setLastMessage,
@@ -1428,26 +1429,7 @@ const fetchStreamingResponse = async (userMessage) => {
     // Process the final result
     console.log('Complete response:', result);
 
-    // Call another API with the final result
-  //   const anotherApiResponse = await fetch('http://66.66.66.23:9500/synthesize/', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({ text: result }),
-  //   });
-
-  //   if (!anotherApiResponse.ok) {
-  //     console.error('Failed to send the result to another API');
-  //   } else {
-  //     console.log('Successfully sent result to another API');
-  //   }
-
-  //   return result;
-  // } catch (error) {
-  //   console.error('Error fetching API:', error);
-  //   return { error: 'Failed to fetch response' };
-  // }
+    
 
   return result
 
@@ -1455,7 +1437,28 @@ const fetchStreamingResponse = async (userMessage) => {
   console.error("error")
 };
 }
+// const callThisMethod = async(result) =>{
+//   try{
+//   const anotherApiResponse = await fetch('http://66.66.66.41:9500/synthesize/', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({ text: result }),
+//     });
 
+//     if (!anotherApiResponse.ok) {
+//       console.error('Failed to send the result to another API');
+//     } else {
+//       console.log('Successfully sent result to another API');
+//     }
+
+//     return result;
+//   } catch (error) {
+//     console.error('Error fetching API:', error);
+//     return { error: 'Failed to fetch response' };
+//   }
+// }
 
 
 
@@ -1475,7 +1478,23 @@ const fetchStreamingResponse = async (userMessage) => {
       console.error('Error fetching API:', error);
     }
   };
-
+  function cleanseMarkdown(data) {
+    /**
+     * Cleanses the input text by removing '*' and '**' markers used for text formatting in Markdown.
+     * Also ensures proper formatting for bullet points.
+     *
+     * @param {string} data - The input text containing Markdown-style markers.
+     * @returns {string} The cleansed text with markers removed and proper formatting applied.
+     */
+  
+    // Remove **bold markers** and *italic markers*
+    const cleansedText = data.replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1');
+  
+    // Ensure proper formatting for bullet points
+    return cleansedText.replace(/^\s*\*/gm, '-');
+  }
+  
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     // const currentInputValue = inputRef.current || inputValue;
@@ -1488,6 +1507,7 @@ const fetchStreamingResponse = async (userMessage) => {
       console.log("apiresposne is ",apiResponse);
       setStreamingResponse(false);
       if (apiResponse && !apiResponse.error) {
+        callThisMethod(cleanseMarkdown(apiResponse));
 
         let botResponse = apiResponse.translated_text || apiResponse;
         console.log(apiResponse)

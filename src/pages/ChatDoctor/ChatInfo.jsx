@@ -76,6 +76,30 @@ function ChatInfo(){
   // const [rewardScoreHover, setRewardScoreHover] = useState("")
 
   // const [emotionScoreHover, setEmotionScoreHover] = useState("")
+  const callThisMethod = async(result) =>{
+    try{
+    const anotherApiResponse = await fetch('http://66.66.66.41:9500/synthesize/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: result }),
+      });
+  
+      if (!anotherApiResponse.ok) {
+        console.error('Failed to send the result to another API');
+      } else {
+        console.log('Successfully sent result to another API');
+      }
+  
+      return result;
+    } catch (error) {
+      console.error('Error fetching API:', error);
+      return { error: 'Failed to fetch response' };
+    }
+  }
+  
+
 
   return (
     <div className="flex flex-col ml-5 w-[42%] max-md:ml-0 max-md:w-full">
@@ -86,12 +110,12 @@ function ChatInfo(){
         {/* <SuggestedActions addMessage={addMessage} setEmotionScore={setEmotionScore} setRewardScore={setRewardScore} setEmpathyScore={setEmpathyScore} setMessage={setMessage}  */}
         {/* setEmotionScoreHover={setEmotionScoreHover} setEmpathyScoreHover={setEmpathyScoreHover} setRewardScoreHover={setRewardScoreHover} setMessages={setMessages} setLastMessage={setLastMessage} */}
         {/* /> */}
-        <SuggestedActions setIsLoading={setIsLoading} setStreamingResponse={setStreamingResponse}  addMessage={addMessage} setMessage={setMessage} setMessages={setMessages} setLastMessage={setLastMessage}  />
+        <SuggestedActions callThisMethod={callThisMethod} setIsLoading={setIsLoading} setStreamingResponse={setStreamingResponse}  addMessage={addMessage} setMessage={setMessage} setMessages={setMessages} setLastMessage={setLastMessage}  />
 
         {/* <ChatInput lastMessage = {lastMessage} setLastMessage={setLastMessage} messages={messages} addMessage={addMessage} setEmotionScore={setEmotionScore} setRewardScore={setRewardScore} setEmpathyScore={setEmpathyScore} setMessage={setMessage} setMessages={setMessages}  */}
           {/* setEmotionScoreHover={setEmotionScoreHover} setEmpathyScoreHover={setEmpathyScoreHover} setRewardScoreHover={setRewardScoreHover} */}
         {/* /> */}
-        <ChatInput setIsLoading={setIsLoading} setStreamingResponse={setStreamingResponse} lastMessage = {lastMessage} setLastMessage={setLastMessage} messages={messages} addMessage={addMessage} setMessage={setMessage} setMessages={setMessages} />
+        <ChatInput callThisMethod={callThisMethod} setIsLoading={setIsLoading} setStreamingResponse={setStreamingResponse} lastMessage = {lastMessage} setLastMessage={setLastMessage} messages={messages} addMessage={addMessage} setMessage={setMessage} setMessages={setMessages} />
       </div>
     </div>
   );

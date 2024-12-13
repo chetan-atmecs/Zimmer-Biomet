@@ -5,11 +5,11 @@ const featureData = [
     title: "Patients",
     color: "bg-[#08615F]",
     content: [
-      "Receiving personalized information about their diagnosis and treatment plan.",
-      "Managing appointments and receiving reminders.",
-      "Accessing symptom management tools and reporting side effects.",
-      "Asking questions and receiving answers about their care.",
-      "Tracking progress and updates."
+      "Receiving personalized information about their diagnosis, surgery, and post-operative care plan.",
+      "Managing appointments for consultations, surgeries, follow-ups, and receiving timely reminders.",
+      "Accessing tools for symptom management, pain tracking, and reporting concerns like swelling or discomfort.",
+      "Asking questions and receiving answers about their implants, rehabilitation exercises, and recovery process.",
+      "Tracking progress with updates on mobility milestones and recovery goals."
     ],
     image: "https://cdn.builder.io/api/v1/image/assets/TEMP/1dbebe3eaadd50ba2ca0f1ee60ce1d963fe2d39fad3f5296b431ea8edfd03ddb?placeholderIfAbsent=true&apiKey=9ba532e0ef57418181adc9d3c43d33c6"
   },
@@ -17,10 +17,10 @@ const featureData = [
     title: "Support Staff",
     color: "bg-[#08615F]",
     content: [
-      "Accessing patient vitals and monitoring treatment side effects.",
-      "Administering chemotherapy and other treatments with support from Mikaila's scheduling and dosing tools.",
-      "Providing patient education materials and guidance.",
-      "Logging patient interactions and updates into the EHR."
+      "Accessing patient vitals and monitoring post-surgery recovery metrics like range of motion and pain levels.",
+      "Assisting with implant-related procedures and rehabilitation plans with support from Mikaila's scheduling and resource allocation tools.",
+      "Providing patient education materials on implant usage, care, and rehabilitation exercises.",
+      "Logging patient interactions, recovery updates, and any complications into the EHR."
     
     ],
     image: "https://cdn.builder.io/api/v1/image/assets/TEMP/6f57e229690fee2af75e16968ff6e17b729e827a797264321c4f259d1016c810?placeholderIfAbsent=true&apiKey=9ba532e0ef57418181adc9d3c43d33c6"
@@ -29,11 +29,11 @@ const featureData = [
     title: "Specialist",
     color: "bg-[#08615F]",
     content: [
-      "Reviewing patient histories and test results.",
-      "Receiving recommendations on diagnostic tests or treatment options.",
-      "Accessing updated clinical guidelines and research studies.",
-      "Scheduling follow-ups and coordinating care with other specialists.",
-      "Using Mikaila for note-taking and documentation during patient consultations."
+      "Reviewing patient histories, imaging results, and pre/post-surgery reports.",
+      "Receiving recommendations on appropriate implants, surgical techniques, or rehabilitation plans tailored to patient needs.",
+      "Accessing updated clinical guidelines for prosthetic devices, including usage protocols and post-implant care.",
+      "Scheduling follow-ups and coordinating care with physical therapists, surgeons, and other specialists.",
+      "Using Mikaila for note-taking, documenting implant maintenance instructions, and capturing observations during patient consultations."
     ],
     image: "https://cdn.builder.io/api/v1/image/assets/TEMP/6f57e229690fee2af75e16968ff6e17b729e827a797264321c4f259d1016c810?placeholderIfAbsent=true&apiKey=9ba532e0ef57418181adc9d3c43d33c6"
   }

@@ -1,9 +1,9 @@
 import React from 'react';
 import { formatJsonToString } from '../../layouts/custom_utils';
 const suggestedActions = [
-  "Learn how Zimmer Biomet’s personalized treatment options can provide you with a faster, more comfortable recovery journey.",
-  "Discover how Zimmer Biomet’s innovative joint solutions can help you regain mobility and improve your quality of life.",
-  "Find out how Zimmer Biomet’s advanced orthopedic technology supports your path to a more active and pain-free lifestyle."
+  "Suggest a physical therapy plan for post-surgery using Zimmer Biomet reverse shoulder replacement. ",
+  "What are the long-term outcomes to be expected when using Zimmer Biomet's shoulder anthroplasty system?",
+  "How can I address complications like stiffness in patients after total knee arthroplasty?"
 ];
 
 function SuggestedActions({ addMessage,setMessage,setStreamingResponse,

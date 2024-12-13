@@ -11,7 +11,7 @@ import NavigationArrows from '../../layouts/MainLayout/NavigationArrows';
 function VirtualAssistant() {
   return (
     <>
-      <NavigationArrows title={'Oncology'}/>
+      <NavigationArrows title={' Zimmer Biomet'}/>
       <div className="flex overflow-hidden flex-col px-16 max-md:px-5">
         {/* <Header /> */}
 
