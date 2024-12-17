@@ -18,7 +18,7 @@ function MediaSection() {
         <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
           <div className="flex flex-col grow max-md:mt-5 max-md:max-w-full">
             <div className="flex relative flex-col justify-center px-28 py-32 w-full text-4xl text-white rounded-lg min-h-[346px] max-md:px-5 max-md:py-24 max-md:max-w-full">
-              <img loading="lazy"  src="src\assets\images\Frame 19.png" alt="Background" className="object-cover absolute inset-0 size-full rounded-lg" />
+              <img loading="lazy"  src="src\assets\images\overview-mikaila.png" alt="Background" className="object-cover absolute inset-0 size-full rounded-lg" />
               {/* <div className="flex relative flex-col justify-center items-center w-full"> */}
                 {/* <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/7630ce6a4f4b8f5ed685e873e822429729619b27c3eee329ee6ea60e6363e285?placeholderIfAbsent=true&apiKey=9ba532e0ef57418181adc9d3c43d33c6" alt="" className="object-contain aspect-square w-[43px]" /> */}
                 {/* <h2 className="mt-3">Learn how Lucia works?</h2> */}

@@ -472,11 +472,11 @@ function ChatHistory({ isLoading,messages, lastMessage,streamingResponse}) {
   // };
   
 
-  // const scrollToBottom = () => {
-  //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  // };
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
-  // useEffect(scrollToBottom, [messages]);
+  useEffect(scrollToBottom, [messages,streamingResponse]);
 
   const allMessages = [INITIAL_MESSAGE, ...messages];
   const handleSynthesis = async (text) => {
@@ -560,7 +560,9 @@ function ChatHistory({ isLoading,messages, lastMessage,streamingResponse}) {
         </button>
       </div>
       </div>
-      <div className="flex flex-col mt-4 w-full overflow-y-auto max-h-[400px] custom-scrollbar">
+      <div 
+      // ref={messagesEndRef}
+      className="flex flex-col mt-4 w-full overflow-y-auto max-h-[400px] custom-scrollbar">
       {allMessages.map((message, index) => (
         <ChatMessage 
         key={index} 
@@ -571,7 +573,8 @@ function ChatHistory({ isLoading,messages, lastMessage,streamingResponse}) {
       ))}
       {isLoading && <ChatMessage isLoading={isLoading} avatar="src/assets/images/Patient img(1)(1)rr.png" isUser={false}/>}
       {streamingResponse && <ChatMessage avatar="src/assets/images/Patient img(1)(1)rr.png" message={streamingResponse} isUser={false}/>}
-        <div ref={messagesEndRef} />
+        
+      <div ref={messagesEndRef} />
       </div>
       <style jsx>{`
         .custom-scrollbar {

@@ -478,6 +478,13 @@ function ChatHistory({ isLoading,messages, lastMessage,streamingResponse}) {
 
   // useEffect(scrollToBottom, [messages]);
 
+  const scrollToBottom = () => {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
+  
+    useEffect(scrollToBottom, [messages,streamingResponse]);
+  
+
   const allMessages = [INITIAL_MESSAGE, ...messages];
   const handleSynthesis = async (text) => {
     try {
