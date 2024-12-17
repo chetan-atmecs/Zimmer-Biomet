@@ -44,27 +44,28 @@ function FolderGrid() {
   // ];
 
   const folderNames = [
-    "company-overview",         // General information about Zimmer Biomet
-    "products",                 // Information on Zimmer Biomet's products
-    "surgical-procedures",      // Detailed documents on surgical procedures using Zimmer Biomet products
-    "training-materials",       // Training resources and manuals
-    "regulatory-compliance",    // Regulatory guidelines and compliance documents
-    "clinical-research",        // Studies, clinical trials, and research papers
-    "marketing-materials",      // Brochures, presentations, and promotional content
-    "customer-support",         // Customer service guides and FAQs
-    "case-studies",             // Case studies and success stories
-    "technical-specifications", // Product specifications and technical data sheets
-    "maintenance-guides",       // Maintenance and troubleshooting documents
-    "supply-chain",             // Information on supply chain and logistics
-    "safety-protocols",         // Safety guidelines and best practices
-    "patents-and-intellectual-property", // Patents and IP-related documents
-    "news-and-press",           // News articles, press releases, and media content
-    "training-certifications",  // Certification details for healthcare professionals
-    "sustainability-initiatives", // Zimmer Biomet’s sustainability and ESG efforts
-    "partnerships-and-collaborations", // Documents on industry partnerships and collaborations
-    "global-operations",        // Details on international offices and operations
-    "historical-data",          // Historical records and company timeline
+    "Company Overview",            // General information about Zimmer Biomet
+    "Products",                    // Information on Zimmer Biomet's products
+    "Surgical Procedures",         // Detailed documents on surgical procedures using Zimmer Biomet products
+    "Training Materials",          // Training resources and manuals
+    "Regulatory Compliance",       // Regulatory guidelines and compliance documents
+    "Clinical Research",           // Studies, clinical trials, and research papers
+    "Marketing Materials",         // Brochures, presentations, and promotional content
+    "Customer Support",            // Customer service guides and FAQs
+    "Case Studies",                // Case studies and success stories
+    "Technical Specifications",    // Product specifications and technical data sheets
+    "Maintenance Guides",          // Maintenance and troubleshooting documents
+    "Supply Chain",                // Information on supply chain and logistics
+    "Safety Protocols",            // Safety guidelines and best practices
+    "Patents And Intellectual Property", // Patents and IP-related documents
+    "News And Press",              // News articles, press releases, and media content
+    "Training Certifications",     // Certification details for healthcare professionals
+    "Sustainability Initiatives",  // Zimmer Biomet’s sustainability and ESG efforts
+    "Partnerships And Collaborations", // Documents on industry partnerships and collaborations
+    "Global Operations",           // Details on international offices and operations
+    "Historical Data",             // Historical records and company timeline
 ];
+
 
   return (
     <div className="flex flex-col w-full max-md:max-w-full">
