@@ -65,7 +65,7 @@ function ChatMedia() {
 
 
   // Define the API endpoint
-const first_run = 'http://66.66.66.23:9500/first_run';
+const first_run = 'http://66.66.66.23:9501/first_run';
 
 // Call the API
 async function fetchData() {
@@ -113,7 +113,7 @@ async function fetchData() {
     // setIsStreaming(false)
     try {
       // Make the API call using fetch
-      const response = await fetch("http://66.66.66.41:9502/stop_stream", {
+      const response = await fetch("http://66.66.66.41:9501/stop_stream", {
         method: 'GET', // HTTP method (e.g., GET, POST, PUT, DELETE)
         headers: {
           'Content-Type': 'application/json', // Set the content type
@@ -155,7 +155,7 @@ async function fetchData() {
     ) : (
       <img
         loading="lazy"
-        src="src/assets/images/Render_04.png"
+        src="src\assets\images\zimmerbiomikaila.png"
         alt="Chat interface visual"
         className="object-cover flex-1 w-full h-full rounded-lg"
       />

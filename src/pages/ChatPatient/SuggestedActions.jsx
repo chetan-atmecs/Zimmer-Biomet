@@ -8,7 +8,8 @@ const suggestedActions = [
 
 function SuggestedActions({ addMessage,setMessage,setStreamingResponse,
   setMessages,
-  setLastMessage
+  setLastMessage,
+  setIsLoading
  }) {
   // const fetchResponse = async (message) => {
   //   try {
@@ -85,6 +86,7 @@ function SuggestedActions({ addMessage,setMessage,setStreamingResponse,
               result += parsed.choices[0].message.content;
               console.log("Recievd results",result)
               setStreamingResponse(result)
+              setIsLoading(false)
             }
           } catch (e) {
             console.error('Failed to parse line:', line, e);
@@ -105,7 +107,7 @@ function SuggestedActions({ addMessage,setMessage,setStreamingResponse,
   const handleClick = async (inputValue) => {
     if (inputValue.trim()) {
       addMessage(inputValue);
-      
+      setIsLoading(true)
       
       // Fetch the response from the API
       const apiResponse = await fetchStreamingResponse(inputValue);

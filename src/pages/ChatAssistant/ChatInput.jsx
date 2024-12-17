@@ -1142,6 +1142,7 @@ function ChatInput({
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const [selectedLanguage, setSelectedLanguage] = useState('English');
   const [isTranscriptionReady, setIsTranscriptionReady] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const inputRef = useRef(); 
   useEffect(() => {
     if (isRecording) {
@@ -1454,7 +1455,7 @@ const fetchStreamingResponse = async (userMessage) => {
   const handleLanguageClick = async (prevLanguage, currentLanguage) => {
     if (!lastMessage) return;
     setSelectedLanguage(currentLanguage); // Update selected language
-
+    setShowDropdown(false)
     const payload = {
       text: lastMessage,
       source_language: prevLanguage,
@@ -1504,6 +1505,7 @@ const fetchStreamingResponse = async (userMessage) => {
             <button
               type="button"
               className="flex justify-center items-center w-10 h-10 bg-zinc-100 rounded-full hover:bg-zinc-200 focus:outline focus:ring-2 focus:ring-zinc-00 transition-colors"
+              onClick={()=> setShowDropdown(!showDropdown)}
             >
               <span class="material-icons">translate</span>
               {/* <img
@@ -1512,40 +1514,41 @@ const fetchStreamingResponse = async (userMessage) => {
                 alt="Language"
                 className="w-6 h-6"
               /> */}
+              
             </button>
 
-            <div className="absolute z-10 mb-2 bottom-full w-40 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-100 delay-100">
+            {showDropdown && <div className="absolute z-10 mb-2 bottom-full w-40 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-100 delay-100">
               <ul className="py-2 text-sm text-gray-700">
                 <li
-                  className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                  className={`px-4 py-2 cursor-pointer ${ 'English' === selectedLanguage ? 'bg-gray-200' : 'hover:bg-gray-100'}`}
                   onClick={() => handleLanguageClick(selectedLanguage,'English')}
                 >
                   English
                 </li>
                 <li
-                  className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                  className={`px-4 py-2 cursor-pointer ${ 'Spanish' === selectedLanguage ? 'bg-gray-200' : 'hover:bg-gray-100'}`}
                   onClick={() => handleLanguageClick(selectedLanguage,'Spanish')}
                 >
                   Spanish
                 </li>
                 <li
-                  className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                  className={`px-4 py-2 cursor-pointer ${ 'Mandarin' === selectedLanguage ? 'bg-gray-200' : 'hover:bg-gray-100'}`}
                   onClick={() => handleLanguageClick(selectedLanguage,'Mandarin')}
                 >
                   Mandarin
                 </li>
                 <li
-                  className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+                  className={`px-4 py-2 cursor-pointer ${ 'Hindi' === selectedLanguage ? 'bg-gray-200' : 'hover:bg-gray-100'}`}
                   onClick={() => handleLanguageClick(selectedLanguage,'Hindi')}
                 >
                  Hindi
                 </li>
-                
-                
 
               </ul>
             </div>
+}
           </div>
+        
         </div>
         
         <div className="flex flex-1 items-center p-2 bg-white rounded-full w-full ml-2 sm:ml-4">
