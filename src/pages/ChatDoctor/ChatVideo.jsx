@@ -107,7 +107,35 @@ async function fetchData() {
     fetchData();
     setIsStreaming(true); // Start streaming when the button is clicked
   };
-
+ 
+  
+  const StopStreaming = async () =>{
+    // setIsStreaming(false)
+    try {
+      // Make the API call using fetch
+      const response = await fetch("http://66.66.66.41:9502/stop_stream", {
+        method: 'GET', // HTTP method (e.g., GET, POST, PUT, DELETE)
+        headers: {
+          'Content-Type': 'application/json', // Set the content type
+        },
+      });
+  
+      // Check if the response is successful
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      // Parse the response JSON
+      const data = await response.json();
+  
+      // Handle the response data
+      console.log('Data received from API:', data);
+    } catch (error) {
+      // Handle errors
+      console.error('Error fetching data:', error);
+    }
+    
+  }
   return (
     <div className="flex flex-col w-[58%]  ">
   <div className="flex grow gap-2.5">
@@ -135,12 +163,18 @@ async function fetchData() {
   </div>
 
   <div className="flex gap-4 mt-4">
-    <button
+    {!isStreaming&&<button
       onClick={handleToggleStreaming}
       className="bg-white text-black py-2 px-4 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-300"
     >
-      Start Streaming
-    </button>
+      Start
+    </button>}
+    {isStreaming && <button
+      onClick={StopStreaming}
+      className="bg-white text-black py-2 px-4 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-300"
+    >
+      Stop
+    </button>}
   </div>
 </div>
 
