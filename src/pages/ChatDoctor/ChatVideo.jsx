@@ -154,6 +154,7 @@ async function fetchData() {
       </div>
     ) : (
       <img
+      style={{width:"715px", height:"788px"}}
         loading="lazy"
         src="src\assets\images\zimmerbiomikaila.png"
         alt="Chat interface visual"
