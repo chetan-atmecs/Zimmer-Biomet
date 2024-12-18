@@ -472,11 +472,11 @@ function ChatHistory({ isLoading,messages, lastMessage,streamingResponse}) {
   // };
   
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  // const scrollToBottom = () => {
+  //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  // };
 
-  useEffect(scrollToBottom, [messages,streamingResponse]);
+  // useEffect(scrollToBottom, [messages,streamingResponse]);
 
   const allMessages = [INITIAL_MESSAGE, ...messages];
   const handleSynthesis = async (text) => {
