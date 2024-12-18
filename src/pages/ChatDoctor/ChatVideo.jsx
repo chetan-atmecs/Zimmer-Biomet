@@ -65,7 +65,7 @@ function ChatMedia() {
 
 
   // Define the API endpoint
-const first_run = 'http://66.66.66.23:9501/first_run';
+const first_run = 'http://66.66.66.23:9502/first_run';
 
 // Call the API
 async function fetchData() {
@@ -113,7 +113,7 @@ async function fetchData() {
     // setIsStreaming(false)
     try {
       // Make the API call using fetch
-      const response = await fetch("http://66.66.66.41:9501/stop_stream", {
+      const response = await fetch("http://66.66.66.41:9502/stop_stream", {
         method: 'GET', // HTTP method (e.g., GET, POST, PUT, DELETE)
         headers: {
           'Content-Type': 'application/json', // Set the content type
@@ -145,7 +145,7 @@ async function fetchData() {
           initialSettings={{
             AutoPlayVideo: true,
             AutoConnect: true,
-            ss: 'ws://66.66.66.41:30080',
+            ss: 'ws://66.66.66.23:30080',
             StartVideoMuted: false,
             HoveringMouse: true,
             WaitForStreamer: true,
