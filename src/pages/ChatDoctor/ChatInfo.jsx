@@ -78,7 +78,7 @@ function ChatInfo(){
   // const [emotionScoreHover, setEmotionScoreHover] = useState("")
   const callThisMethod = async(result) =>{
     try{
-    const anotherApiResponse = await fetch('http://66.66.66.41:9501/synthesize/', {
+    const anotherApiResponse = await fetch('http://66.66.66.23:9502/synthesize/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

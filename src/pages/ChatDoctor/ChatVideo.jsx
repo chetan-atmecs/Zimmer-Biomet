@@ -113,7 +113,7 @@ async function fetchData() {
     // setIsStreaming(false)
     try {
       // Make the API call using fetch
-      const response = await fetch("http://66.66.66.41:9502/stop_stream", {
+      const response = await fetch("http://66.66.66.23:9502/stop_stream", {
         method: 'GET', // HTTP method (e.g., GET, POST, PUT, DELETE)
         headers: {
           'Content-Type': 'application/json', // Set the content type
