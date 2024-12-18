@@ -11,7 +11,7 @@ function RegistrationForm() {
 
   const stylebutton = {
     borderRadius: '8px',
-    background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)',
+    background: 'linear-gradient(90deg, #00D4FF 0%, #0083B0 100%)',
     boxShadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.20)',
     padding: '20px',
     color: '#fff',
