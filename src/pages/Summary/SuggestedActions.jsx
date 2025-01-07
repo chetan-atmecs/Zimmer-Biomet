@@ -11,7 +11,8 @@ function SuggestedActions({ addMessage,setEmotionScore,setEmpathyScore,setMessag
   setRewardScoreHover,
   setEmpathyScoreHover,
   setMessages,
-  setLastMessage
+  setLastMessage,
+  setIsLoading
  }) {
   const fetchResponse = async (message) => {
     try {
@@ -30,6 +31,7 @@ function SuggestedActions({ addMessage,setEmotionScore,setEmpathyScore,setMessag
       }
 
       const data = await response.json(); 
+      setIsLoading(false)
       return data;
     } catch (error) {
       console.error('Error fetching API:', error);
@@ -39,7 +41,7 @@ function SuggestedActions({ addMessage,setEmotionScore,setEmpathyScore,setMessag
   const handleClick = async (inputValue) => {
     if (inputValue.trim()) {
       addMessage(inputValue);
-      
+      setIsLoading(true)
       
       // Fetch the response from the API
       const apiResponse = await fetchResponse(inputValue);

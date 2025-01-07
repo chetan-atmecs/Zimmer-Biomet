@@ -235,6 +235,7 @@
 // }
 
 // export default ChatHistory;
+
 import React, { useRef, useEffect, useState } from 'react';
 import ChatMessage from './ChatMessage';
 
@@ -242,11 +243,11 @@ import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import MuteIcon from '@mui/icons-material/VolumeOff'; 
 
 const INITIAL_MESSAGE = {
-  text: "Hello! I'm an AI assistant. How can I help you today?",
+  text: "Hello! I'm Mekalai. How can I help you today?",
   isUser: false
 };
 
-function ChatHistory({ messages, score,lastMessage, emotionScoreHover}) {
+function ChatHistory({ messages, score,lastMessage, emotionScoreHover, isLoading}) {
   const messagesEndRef = useRef(null);
   const [audio, setAudio] = useState(null); // To keep track of the playing audio
   const [isPlaying, setIsPlaying] = useState(false);
@@ -390,6 +391,7 @@ function ChatHistory({ messages, score,lastMessage, emotionScoreHover}) {
             isUser={message.isUser} 
           />
         ))}
+        {isLoading && <ChatMessage isLoading={isLoading} avatar="src/assets/images/Patient img(1)(1)rr.png" isUser={false}/>}
         <div ref={messagesEndRef} />
       </div>
       <style jsx>{`
