@@ -243,7 +243,7 @@ import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import MuteIcon from '@mui/icons-material/VolumeOff'; 
 
 const INITIAL_MESSAGE = {
-  text: "Hello! I'm Mekalai. How can I help you today?",
+  text: "Hello! I'm Mikaila. How can I help you today?",
   isUser: false
 };
 
