@@ -571,13 +571,13 @@ function ChatHistory({ isLoading,messages, lastMessage,streamingResponse}) {
       {allMessages.map((message, index) => (
         <ChatMessage 
         key={index} 
-        avatar={message.isUser ? "src/assets/images/avatar-1.png" : "src/assets/images/cropped-image (1).png"} 
+        avatar={message.isUser ? "src/assets/images/avatar-1.png" : "src/assets/images/zimmerbiometnewmikailaicon.png"} 
         message={message.text} 
         isUser={message.isUser} 
         />
       ))}
-      {isLoading && <ChatMessage isLoading={isLoading} avatar="src/assets/images/cropped-image (1).png" isUser={false}/>}
-      {streamingResponse && <ChatMessage avatar="src/assets/images/cropped-image (1).png" message={streamingResponse} isUser={false}/>}
+      {isLoading && <ChatMessage isLoading={isLoading} avatar="src/assets/images/zimmerbiometnewmikailaicon.png" isUser={false}/>}
+      {streamingResponse && <ChatMessage avatar="src/assets/images/zimmerbiometnewmikailaicon.png" message={streamingResponse} isUser={false}/>}
         <div ref={messagesEndRef} />
       </div>
       <style jsx>{`
